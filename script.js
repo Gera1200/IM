@@ -1,28 +1,36 @@
-// script.js
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'block';
-    }
-}
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav ul li a');
+const toggleButtons = document.querySelectorAll('.toggle-button');
 
-function showSection(id) {
-    const sections = document.querySelectorAll('.seccion');
-    sections.forEach(section => section.classList.remove('activa'));
-    document.getElementById(id).classList.add('activa');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('inicio').classList.add('activa');
+// Mostrar/ocultar menú en pantallas pequeñas
+menuToggle.addEventListener('click', () => {
+    navbar.querySelector('ul').classList.toggle('show');
 });
 
-function toggleInfo(id) {
-    const element = document.getElementById(id);
-    if (element.style.display === 'block') {
-        element.style.display = 'none';
-    } else {
-        element.style.display = 'block';
-    }
-}
+// Navegación entre secciones
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = link.getAttribute('data-section');
+
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        document.getElementById(sectionId).classList.add('active');
+
+        if (window.innerWidth <= 768) {
+            navbar.querySelector('ul').classList.remove('show');
+        }
+    });
+});
+
+// Botones desplegables
+toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
