@@ -1,75 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Profesional</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <button id="menu-toggle" class="menu-toggle">☰</button>
-        <nav id="navbar">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="menu">
             <ul>
-                <li><a href="#" data-section="inicio">Inicio</a></li>
-                <li><a href="#" data-section="sobre-mi">Sobre mí</a></li>
-                <li><a href="#" data-section="objetivo-profesional">Objetivo Profesional</a></li>
-                <li><a href="#" data-section="experiencia-profesional">Experiencia Profesional</a></li>
-                <li><a href="#" data-section="formacion-academica">Formación Académica</a></li>
-                <li><a href="#" data-section="idiomas">Idiomas</a></li>
-                <li><a href="#" data-section="certificaciones">Certificaciones</a></li>
-                <li><a href="#" data-section="habilidades">Habilidades</a></li>
-                <li><a href="#" data-section="contacto">Contacto</a></li>
+                <li onclick="showSection('inicio')">Inicio</li>
+                <li onclick="showSection('sobre-mi')">Sobre Mí</li>
+                <li onclick="showSection('objetivo-profesional')">Objetivo Profesional</li>
+                <li onclick="showSection('experiencia')">Experiencia Profesional</li>
+                <li onclick="showSection('formacion')">Formación Académica</li>
+                <li onclick="showSection('idiomas')">Idiomas</li>
+                <li onclick="showSection('certificaciones')">Certificaciones</li>
+                <li onclick="showSection('habilidades')">Habilidades</li>
+                <li onclick="showSection('contacto')">Contacto</li>
             </ul>
         </nav>
     </header>
+    
     <main>
-        <section id="inicio" class="active">
-            <h1>Bienvenido</h1>
-            <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="foto-inicio">
+        <section id="inicio" class="seccion activa">
+            <h1>Bienvenido a mi perfil profesional</h1>
+            <img src="foto.jpg" alt="Foto de perfil" class="perfil">
         </section>
-        <section id="sobre-mi">
-            <h1>Sobre mí</h1>
-            <p>Aquí va información sobre ti.</p>
+        <section id="sobre-mi" class="seccion">
+            <h2>Sobre Mí</h2>
+            <p>Información personal y trayectoria.</p>
         </section>
-        <section id="objetivo-profesional">
-            <h1>Objetivo Profesional</h1>
-            <p>Información sobre tu objetivo profesional.</p>
+        <section id="objetivo-profesional" class="seccion">
+            <h2>Objetivo Profesional</h2>
+            <p>Descripción de mis metas y aspiraciones.</p>
         </section>
-        <section id="experiencia-profesional">
-            <h1>Experiencia Profesional</h1>
-            <button class="toggle-button">Trabajo 1</button>
-            <div class="toggle-content">Detalles del Trabajo 1.</div>
-            <button class="toggle-button">Trabajo 2</button>
-            <div class="toggle-content">Detalles del Trabajo 2.</div>
+        <section id="experiencia" class="seccion">
+            <h2>Experiencia Profesional</h2>
+            <div class="experiencia-lista">
+                <button onclick="toggleInfo('exp1')">Trabajo 1</button>
+                <p id="exp1" class="info oculto">Detalles del trabajo 1.</p>
+                <button onclick="toggleInfo('exp2')">Trabajo 2</button>
+                <p id="exp2" class="info oculto">Detalles del trabajo 2.</p>
+            </div>
         </section>
-        <section id="formacion-academica">
-            <h1>Formación Académica</h1>
-            <button class="toggle-button">Carrera 1</button>
-            <div class="toggle-content">Detalles de la Carrera 1.</div>
-            <button class="toggle-button">Carrera 2</button>
-            <div class="toggle-content">Detalles de la Carrera 2.</div>
+        <section id="formacion" class="seccion">
+            <h2>Formación Académica</h2>
+            <div class="formacion-lista">
+                <button onclick="toggleInfo('form1')">Carrera 1</button>
+                <p id="form1" class="info oculto">Detalles de la carrera 1.</p>
+                <button onclick="toggleInfo('form2')">Carrera 2</button>
+                <p id="form2" class="info oculto">Detalles de la carrera 2.</p>
+            </div>
         </section>
-        <section id="idiomas">
-            <h1>Idiomas</h1>
-            <p>Información sobre idiomas.</p>
+        <section id="idiomas" class="seccion">
+            <h2>Idiomas</h2>
+            <p>Lista de idiomas hablados.</p>
         </section>
-        <section id="certificaciones">
-            <h1>Certificaciones</h1>
-            <p>Información sobre certificaciones.</p>
+        <section id="certificaciones" class="seccion">
+            <h2>Certificaciones</h2>
+            <p>Certificados obtenidos.</p>
         </section>
-        <section id="habilidades">
-            <h1>Habilidades</h1>
-            <p>Información sobre habilidades.</p>
+        <section id="habilidades" class="seccion">
+            <h2>Habilidades</h2>
+            <p>Lista de habilidades técnicas y blandas.</p>
         </section>
-        <section id="contacto">
-            <h1>Contacto</h1>
+        <section id="contacto" class="seccion">
+            <h2>Contacto</h2>
             <p>Formulario o información de contacto.</p>
         </section>
     </main>
+    
     <footer>
-        <p>&copy; 2025 Mi Nombre. Todos los derechos reservados.</p>
+        <p>&copy; 2025. Todos los derechos reservados.</p>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
