@@ -1,24 +1,28 @@
-// Animación suave al hacer clic en los enlaces del menú
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-// Validación del formulario de contacto
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    if (name && email && message) {
-        alert('Gracias por tu mensaje. Te contactaré pronto.');
-        this.reset();
+// script.js
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
     } else {
-        alert('Por favor, completa todos los campos.');
+        menu.style.display = 'block';
     }
+}
+
+function showSection(id) {
+    const sections = document.querySelectorAll('.seccion');
+    sections.forEach(section => section.classList.remove('activa'));
+    document.getElementById(id).classList.add('activa');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('inicio').classList.add('activa');
 });
+
+function toggleInfo(id) {
+    const element = document.getElementById(id);
+    if (element.style.display === 'block') {
+        element.style.display = 'none';
+    } else {
+        element.style.display = 'block';
+    }
+}
