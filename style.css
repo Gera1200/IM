@@ -9,12 +9,13 @@ body {
 header {
     background: #333;
     color: #fff;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 1000;
 }
 
 .menu-toggle {
@@ -23,12 +24,16 @@ header {
     position: absolute;
     left: 20px;
     top: 10px;
+    padding: 10px;
+    background: #222;
+    border-radius: 5px;
 }
 
 nav {
     display: none;
     background: #444;
     padding: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 nav ul {
@@ -43,6 +48,11 @@ nav ul li {
     cursor: pointer;
     color: #fff;
     text-align: center;
+    transition: background 0.3s;
+}
+
+nav ul li:hover {
+    background: #777;
 }
 
 .seccion {
@@ -50,10 +60,15 @@ nav ul li {
     padding: 50px;
     margin-top: 60px;
     background: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
 }
 
 .seccion.activa {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .perfil {
@@ -74,6 +89,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 button:hover {
@@ -85,6 +101,15 @@ button:hover {
     padding: 10px;
     background: #eee;
     margin-top: 5px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s ease-in-out;
+}
+
+.info.mostrar {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
 }
 
 .oculto {
@@ -100,4 +125,3 @@ footer {
     width: 100%;
     bottom: 0;
 }
-
